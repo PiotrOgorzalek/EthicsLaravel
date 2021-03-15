@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-$conn = new mysqli("localhost", "root", "", "ethicsdatabase");
+//connect to database
+require ('connect.php');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

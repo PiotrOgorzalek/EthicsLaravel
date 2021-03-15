@@ -1,5 +1,7 @@
 <?php
+    
 	session_start();
+	//I did not change to require ('connect.php'); that as i was not sure is that site needes and database name is different -- piotr
 	$conn = new mysqli("localhost", "root", "", "vuelogin");
 
 	if ($conn->connect_error) {
