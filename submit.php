@@ -2,7 +2,8 @@
 session_start();
 //getting data from ethics js on complete
 $txt = file_get_contents('php://input');
-$id = $_SESSION['id'];
+//grabbing user id from session
+$id = $_SESSION['userId'];
 ?> 
 <script>alert (<?php echo $id;?>)</script>
 <?php
