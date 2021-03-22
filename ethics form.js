@@ -63,6 +63,12 @@ var json = {
             placeHolder: "If anyone is funding research please input both the amount and source in here, if not leave blank.",
             isRequired: false
         }, {
+          name: "supervisorEmail",
+          type: "text",
+          title: "Supervisor email:",
+          placeHolder: "Enter supervisor email",
+          isRequired: true
+      }, {
             type: "radiogroup",
             name: "researchType",
             title: "Type of Research:",
