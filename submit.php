@@ -41,8 +41,8 @@ $supervisorId = (int)$supervisorId;
 $createUserData = "UPDATE users SET userName='$userName',schoolOrProfessionalService='$schoolOrService',contactNumber='$contactNo' where userId='$id'";
 @mysqli_query($conn,$createUserData);
 //inserting data into application table
-$createApplicationData= "INSERT INTO application (applicationId,projectTitle,users_staffId,startDate,durationOfProject,funding,typeOfResearch,applicationPath) 
-                            values (null,'$projectTitle','$supervisorId','$startDate','$duration','$funding','$typeOfResearch','$path')";
+$createApplicationData= "INSERT INTO application (applicationId,projectTitle,users_staffId,startDate,durationOfProject,funding,typeOfResearch,applicationPath,approved) 
+                            values (null,'$projectTitle','$supervisorId','$startDate','$duration','$funding','$typeOfResearch','$path',null)";
 //getting the last input number
 @mysqli_query($conn,$createApplicationData);
 
