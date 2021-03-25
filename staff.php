@@ -59,90 +59,21 @@
 								<h2>Staff</h2>
 								<p></p>
 							</header>
-							<div id="demo">
-					      <form id="search">
-					        Search <input name="query" v-model="searchQuery" />
-					      </form>
-					      <demo-grid
-					        :heroes="gridData"
-					        :columns="gridColumns"
-					        :filter-key="searchQuery"
-					      >
-					      </demo-grid>
-					    </div>
-
-					    <script>
-					      // register the grid component
-					      Vue.component("demo-grid", {
-					        template: "#grid-template",
-					        props: {
-					          heroes: Array,
-					          columns: Array,
-					          filterKey: String
-					        },
-					        data: function() {
-					          var sortOrders = {};
-					          this.columns.forEach(function(key) {
-					            sortOrders[key] = 1;
-					          });
-					          return {
-					            sortKey: "",
-					            sortOrders: sortOrders
-					          };
-					        },
-					        computed: {
-					          filteredHeroes: function() {
-					            var sortKey = this.sortKey;
-					            var filterKey = this.filterKey && this.filterKey.toLowerCase();
-					            var order = this.sortOrders[sortKey] || 1;
-					            var heroes = this.heroes;
-					            if (filterKey) {
-					              heroes = heroes.filter(function(row) {
-					                return Object.keys(row).some(function(key) {
-					                  return (
-					                    String(row[key])
-					                      .toLowerCase()
-					                      .indexOf(filterKey) > -1
-					                  );
-					                });
-					              });
-					            }
-					            if (sortKey) {
-					              heroes = heroes.slice().sort(function(a, b) {
-					                a = a[sortKey];
-					                b = b[sortKey];
-					                return (a === b ? 0 : a > b ? 1 : -1) * order;
-					              });
-					            }
-					            return heroes;
-					          }
-					        },
-					        filters: {
-					          capitalize: function(str) {
-					            return str.charAt(0).toUpperCase() + str.slice(1);
-					          }
-					        },
-					        methods: {
-					          sortBy: function(key) {
-					            this.sortKey = key;
-					            this.sortOrders[key] = this.sortOrders[key] * -1;
-					          }
-					        }
-					      });
-
-					      var demo = new Vue({
-					        el: "#demo",
-					        data: {
-					          searchQuery: "",
-					          gridColumns: ["Researcher Name", "Email", "Project Title", "Type", "Date Requested", "Approved", "Options"],
-					          gridData: [
-					            { 'Researcher Name': "Andrew Joh", Email: "andrew@gmail.com", 'Project Title': "Why bees", Type: "Doctoral Student", 'Date Requested': "29/02/2021", Approved: "Yes", Options: "<form method='get' action='view application.php'><input type='submit' value='View'></form>" },
-						          { 'Researcher Name': "Joseph Brown", Email: "joseph@how.youdoing.com", 'Project Title': "Be friends", Type: "Masters", 'Date Requested': "10/04/2019", Approved: "Yes", Options: "<form method='get' action='view application.php'><input type='submit' value='View'></form>" },
-							        { 'Researcher Name': "Elsa Rivendale", Email: "ice@cold.uk", 'Project Title': "Why so cool", Type: "UG", 'Date Requested': "31/12/2021", Approved: "No", Options: "<form method='get' action='view application.php'><input type='submit' value='View'></form>" }
-					          ]
-					        }
-					      });
-					    </script>
+							<div id="tableApp">
+							<table>
+									<tr>
+										<th>Name</th>
+										<th>Name</th>
+										<th>Name</th>
+										<th>Name</th>
+										<tr v-for="row in allData">
+										<td>{{row.name}}</td>
+										<td>{{row.name}}</td>
+										<td>{{row.email}}</td>
+										<td>{{row.email}}</td>
+							</table>
+									</tr>
+						
 						</article>
 				</div>
 			</div>
@@ -184,5 +115,25 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+						var application = new Vue({
+							el:'#tableApp',
+							data:{
+								allData:'',
+							},
+							methods:{
+								fetchAllData:function(){
+									axios.post('staffTable.php',{
+										action:'fetchall'
+									}).then(function(response){
+										application.allData = response.data;
+									});
+								}
+							},
+							created:function(){
+								this.fetchAllData()
+							}
+						});
+					    </script>
 	</body>
 </html>
