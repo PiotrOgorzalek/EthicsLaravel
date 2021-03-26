@@ -1,21 +1,9 @@
 <?php
-    
 	session_start();
-	//I did not change to require ('connect.php'); that as i was not sure is that site needes and database name is different -- piotr
-	$conn = new mysqli("localhost", "root", "", "vuelogin");
 
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
-
-	if (!isset($_SESSION['user']) ||(trim ($_SESSION['user']) == '')){
+	if (!isset($_SESSION['user']) || (trim ($_SESSION['user']) == '')){
 		header('location:index.php');
 	}
-
-	$sql="select * from user where userid='".$_SESSION['user']."'";
-	$query=$conn->query($sql);
-	$row=$query->fetch_array();
-
 ?>
 
 <!DOCTYPE HTML>

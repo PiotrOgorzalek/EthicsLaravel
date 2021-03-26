@@ -39,7 +39,7 @@
 									<div class="panel panel-primary">
 											<div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> Sign in</div>
 											<div class="panel-body">
-												<label>Username:</label><input type="text" class="form-control" v-model="logDetails.username" v-on:keyup="keymonitor">
+												<label>Email:</label><input type="text" class="form-control" v-model="logDetails.email" v-on:keyup="keymonitor">
 												<label>Password:</label><input type="password" class="form-control" v-model="logDetails.password" v-on:keyup="keymonitor">
 											</div>
 											<div class="panel-footer">

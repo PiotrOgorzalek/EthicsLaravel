@@ -1,6 +1,6 @@
 <?php
 session_start();
-//connectiong to dataabase 
+//connectiong to dataabase
 require ('connect.php');
 
 if ($conn->connect_error) {
@@ -9,19 +9,19 @@ if ($conn->connect_error) {
 
 $out = array('error' => false);
 
-$username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
-if($username==''){
+if($email==''){
 	$out['error'] = true;
-	$out['message'] = "Username is required"; // If username is left blank this will return a message to the page
+	$out['message'] = "Email is required"; // If username is left blank this will return a message to the page
 }
 else if($password==''){
 	$out['error'] = true;
 	$out['message'] = "Password is required"; // If password is left blank this will return a message to the page
 }
 else{
-	$sql = "select * from users where userName='$username' and password='$password'";
+	$sql = "select * from users where email='$email' and password='$password'";
 	$query = $conn->query($sql);
 
 	if($query->num_rows>0){
@@ -35,13 +35,9 @@ else{
 	}
 }
 
-
-
 $conn->close();
 
 header("Content-type: application/json");
 echo json_encode($out);
 die();
-
-
 ?>
