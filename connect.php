@@ -8,6 +8,8 @@ define('USERNAME','root');
 define('PWRD','');
 define ('HOSTNAME','localhost');
 define('DBNAME', 'ethicsdatabase');
+//for creating tables for application and staff
+$conn2= new PDO("mysql:host=localhost;dbname=ethicsdatabase","admin","Team6P@ssw0rd");
 
 // database connection
 //@ supresses error that would show the USERNAME
