@@ -37,7 +37,7 @@ else
 		$sql = "INSERT INTO users(email,password) VALUES ('$userEmail','$password')";
 			 if ($conn->query($sql) === TRUE)
 			  { // If the insert works then run the below code to log the user in
-				$sql = "select * from users where email='$userEmail' and password='$password'"; //Necessary to log the user in directly after creating an account
+				$sql = "SELECT * from users where email='$userEmail' and password='$password'"; //Necessary to log the user in directly after creating an account
   				$query = $conn->query($sql);
 
   					if($query->num_rows>0)
