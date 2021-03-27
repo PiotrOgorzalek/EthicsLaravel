@@ -488,8 +488,8 @@ survey.onComplete.add(function (sender, options) {
   console.log(changed);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
   xhr.send(changed);
-  
-  
+
+
 });
 
 //just for testing NEED TO BE DELETED IN FULL VERSION!!!!!!
