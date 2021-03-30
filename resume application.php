@@ -13,7 +13,10 @@
 		<title>ENU Student Ethics Resource</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/survey-vue@1.8.31/survey.vue.min.js"></script>
+    <link href="https://unpkg.com/survey-knockout@1.8.31/survey.min.css" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
@@ -33,34 +36,11 @@
 								-->
 								<h2>Resume Application</h2>
 							</header>
-							<div id="application">
-								<div class="col-md-4 col-md-offset-4">
-
-									<div class="panel panel-primary">
-											<div class="panel-heading"><span class="glyphicon glyphicon-lock"></span></div>
-											<div class="panel-body">
-												<label>Application ID:</label><input type="text" class="form-control" v-model="application.appID" v-on:keyup="keymonitor">
-												<label>User ID:</label><input type="text" class="form-control" v-model="application.userID" v-on:keyup="keymonitor">
-											</div>
-											<div class="panel-footer">
-												<p></p>
-												<button @click="checkDetails();"><span class="glyphicon glyphicon-log-in"></span>Submit</button>
-												<p></p>
-											</div>
-									</div>
-
-									<div class="alert alert-danger text-center" v-if="errorMessage">
-										<button type="button" class="close" @click="clearMessage();"><span aria-hidden="true">&times;</span></button>
-										<span class="glyphicon glyphicon-alert"></span> {{ errorMessage }}
-									</div>
-
-									<div class="alert alert-success text-center" v-if="successMessage">
-										<button type="button" class="close" @click="clearMessage();"><span aria-hidden="true">&times;</span></button>
-										<span class="glyphicon glyphicon-check"></span> {{ successMessage }}
-									</div>
-
-								</div>
+							<p>If you require any help answering questions please refer to the FAQ as linked here - <a target="_blank" href="faq.php">FAQ</a></p>
+							<div id="surveyElement" style="display:inline-block;width:100%;">
+								 <survey :survey='survey'/>
 							</div>
+							<div id="surveyResult"></div>
 						</article>
 				</div>
 			</div>
@@ -96,9 +76,8 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-			<script src="resumeApp.js"></script>
+			<script type="text/javascript" src="./resumeApp.js"></script>
+			<script src="https://unpkg.com/vue@next"></script> <!-- import vue.js -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>

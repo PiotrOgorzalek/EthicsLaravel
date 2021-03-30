@@ -480,6 +480,7 @@ var json = {
 };
 
 window.survey = new Survey.Model(json);
+
 survey.onComplete.add(function (sender, options) {
   //var user_id = <?php echo $user_id?>;
   var xhr = new XMLHttpRequest();
@@ -488,18 +489,16 @@ survey.onComplete.add(function (sender, options) {
   console.log(changed);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
   xhr.send(changed);
-
-
 });
 
-//just for testing NEED TO BE DELETED IN FULL VERSION!!!!!!
-survey
+//just for testing NEED TO BE DELETED IN FULL VERSION!!!!!! Nick - Commented out as we have access to the file creation allowing us to view the values inserted withou the below code
+/*survey
     .onComplete
     .add(function (result) {
         document
             .querySelector('#surveyResult')
             .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+    });*/
 
 var app = new Vue({
     el: '#surveyElement',
