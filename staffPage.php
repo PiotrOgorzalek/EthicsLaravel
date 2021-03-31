@@ -51,7 +51,6 @@
 										<th>UserId</th>
 										<tr v-for="row in allData">
 										<td>{{row.userName}}</td>
-										<th>{{row.applicationPath}}</th>
 										<td>{{row.email}}</td>
 										<td>{{row.projectTitle}}</td>
 										<td>{{row.typeOfResearch}}</td>
