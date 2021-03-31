@@ -15,7 +15,7 @@ var app = new Vue({
 
 		checkDetails: function(){
 			var userForm = app.toFormData(app.userDetails);
-			axios.post('createUserPHP.php', userForm)
+			axios.post('createUser.php', userForm)
 				.then(function(response){
 
 					if(response.data.error){
@@ -25,7 +25,7 @@ var app = new Vue({
 						app.successMessage = response.data.message;
 						app.userDetails = {email: '', password: ''};
 						setTimeout(function(){
-							window.location.href="ethics form.php";
+							window.location.href="ethicsFormPage.php";
 						},2000);
 					}
 				});

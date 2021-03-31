@@ -15,7 +15,7 @@ var app = new Vue({ // Create a new vue app
 
 		checkDetails: function(){
 			var supervisorForm = app.toFormData(app.supervisorDetails);
-			axios.post('addSupervisorPHP.php', supervisorForm) // Will send the form to addSupervisorPHP then manage the response accordingly
+			axios.post('addSupervisor.php', supervisorForm) // Will send the form to addSupervisorPHP then manage the response accordingly
 				.then(function(response){
 
 					if(response.data.error){ // If there is an error then the message will display the error
@@ -25,7 +25,7 @@ var app = new Vue({ // Create a new vue app
 						app.successMessage = response.data.message;
 						app.supervisorDetails = {superName: '', superEmail: '', superPass: ''};
 						setTimeout(function(){
-							window.location.href="admin.php";
+							window.location.href="adminPage.php";
 						},2000);
 					}
 				});

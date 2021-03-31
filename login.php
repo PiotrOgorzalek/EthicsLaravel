@@ -27,7 +27,8 @@ else{
 	if($query->num_rows>0){
 		$row=$query->fetch_array();
 		$_SESSION['user']=$row['userId']; // Set session variable of user to the user id of a user on a successful login
-    $_SESSION['userType']='Student'; // Set session variable of userType to student
+
+    // $_SESSION['userType']='Student'; // MIGHT NOT BE NEEDED
 		$out['message'] = "Login Successful"; // If the user is successfully logged in this will return a message to the page
 	}
 	else{

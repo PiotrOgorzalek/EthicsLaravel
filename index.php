@@ -47,11 +47,10 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="initial assessment.php">Start app process</a></li>
-							<li><a href="resume application.php">Resume Application</a></li>
+							<li><a href="initialAssessmentPage.php">Start app process</a></li>
+							<li><a href="resumeApplicationPage.php">Resume Application</a></li>
 							<li><a href="faq.php">FAQ</a></li>
-							<li><a href="staff.php">Staff</a></li>
-							<li><a href="admin.php">Admin</a></li>
+							<li><a href="loginPageStaff.php">Staff Login</a></li>
 							<?php if(isset($_SESSION['user'])) //check if user is a user and display buttons
 						    {
 						    ?>
