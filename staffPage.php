@@ -19,27 +19,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script type="text/x-template" id="grid-template">
-      <table>
-        <thead>
-          <tr>
-            <th v-for="key in columns"
-              @click="sortBy(key)"
-              :class="{ active: sortKey == key }">
-              {{ key | capitalize }}
-              <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="entry in filteredHeroes">
-            <td v-for="key in columns">
-							<span v-if="key == 'Options'" v-html="entry[key]"></span>
-							<span v-else>{{entry[key]}}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      
     </script>
 	</head>
 	<body class="is-preload">
@@ -62,15 +42,25 @@
 							<div id="tableApp">
 							<table>
 									<tr>
-										<th>Name</th>
-										<th>Name</th>
-										<th>Name</th>
-										<th>Name</th>
+										<th>Researcher name</th>
+										<th>email</th>
+										<th>Project Title</th>
+										<th>typeOfResearch</th>
+										<th>Starting date</th>
+										<th>Aproved</th>
+										<th>UserId</th>
 										<tr v-for="row in allData">
-										<td>{{row.name}}</td>
-										<td>{{row.name}}</td>
+										<td>{{row.userName}}</td>
+										<th>{{row.applicationPath}}</th>
 										<td>{{row.email}}</td>
-										<td>{{row.email}}</td>
+										<td>{{row.projectTitle}}</td>
+										<td>{{row.typeOfResearch}}</td>
+										<td>{{row.startDate}}</td>
+										<!--  depends on the return from database the output will change -->
+										<td v-if="row.approved===null">Pending approval</td>
+										<td v-else="row.approved=null">{{row.approved}}</td>
+										<td><a v-bind:href="'resumeApplicationPage.php?user=' + row.userId">{{ row.userId }}</a></td>
+
 							</table>
 									</tr>
 						

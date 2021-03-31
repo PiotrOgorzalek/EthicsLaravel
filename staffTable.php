@@ -1,12 +1,16 @@
 <?php
-
+session_start();
 require ('connect.php');
 $received_data = json_decode(file_get_contents("php://input"));
 $data = array();
 
 if ($received_data->action == 'fetchall')
 {
-    $query = "select * from users";
+   //selecting only what needed
+    $query = "select userName,projectTitle,users.email,typeOfResearch,startDate,approved,users.userId from application 
+    join user_application on user_application.applicationId = application.applicationId
+    join users on users.userId = user_application.userId
+    where users_staffId =1";
     $statement = $conn2->prepare($query);
     $statement->execute();
      while ($row = $statement->fetch(PDO::FETCH_ASSOC))
