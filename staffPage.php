@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script type="text/x-template" id="grid-template">
-      
+
     </script>
 	</head>
 	<body class="is-preload">
@@ -58,11 +58,11 @@
 										<!--  depends on the return from database the output will change -->
 										<td v-if="row.approved===null">Pending approval</td>
 										<td v-else="row.approved=null">{{row.approved}}</td>
-										<td><a v-bind:href="'resumeApplicationPage.php?user=' + row.userId">{{ row.userId }}</a></td>
+										<td><a v-bind:href="'viewApplicationPage.php?usersID=' + row.userId">{{ row.userId }}</a></td>
 
 							</table>
 									</tr>
-						
+
 						</article>
 				</div>
 			</div>

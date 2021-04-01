@@ -13,9 +13,10 @@
 		<title>ENU Student Ethics Resource</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/survey-vue@1.8.30/survey.vue.min.js"></script>
-    <link href="https://unpkg.com/survey-knockout@1.8.30/survey.min.css" type="text/css" rel="stylesheet"/>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/survey-vue@1.8.31/survey.vue.min.js"></script>
+    <link href="https://unpkg.com/survey-knockout@1.8.31/survey.min.css" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
@@ -33,13 +34,12 @@
 									if they get too long. You can also remove the <p> entirely if you don't
 									need a subtitle.
 								-->
-								<h2>View application</h2>
+								<h2>Viewing Application</h2>
 							</header>
 							<div id="surveyElement" style="display:inline-block;width:100%;">
-		            <survey :survey='survey'/>
-			        </div>
-			        <div id="surveyResult"></div>
-					    <script type="text/javascript" src="viewResults.js"></script>
+								 <survey :survey='survey'/>
+							</div>
+							<div id="surveyResult"></div>
 						</article>
 				</div>
 			</div>
@@ -74,9 +74,8 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-			<script src="app.js"></script>
+			<script type="text/javascript" src="./viewApp.js"></script>
+			<script src="https://unpkg.com/vue@next"></script> <!-- import vue.js -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
