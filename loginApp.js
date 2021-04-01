@@ -25,7 +25,7 @@ var app = new Vue({
 						app.successMessage = response.data.message;
 						app.logDetails = {email: '', password:''};
 						setTimeout(function(){
-							window.location.href="success.php";
+							window.location.href="successPage.php";
 						},2000);
 
 					}
