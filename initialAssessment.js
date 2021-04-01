@@ -105,19 +105,22 @@ var json = {
 window.survey = new Survey.Model(json);
 
 survey.onComplete.add(function (result) {
-        document.querySelector('#surveyResult').textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3); //Assigns the results to a div
-				document.getElementById('surveyResult').style.display = "none"; //Hides the result div from view
+	document.querySelector('#surveyResult').textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3); //Assigns the results to a div
+			document.getElementById('surveyResult').style.display = "none"; //Hides the result div from view
 
-				if (!document.getElementById('surveyResult').textContent.includes('true')) {
-					var t = document.createTextNode('No ethics review is required for your project.');
-				} else if (document.getElementById('surveyResult').textContent.includes('"q7": true' || '"q8": true' || '"q9": true' || '"q10": true' || '"q11: true' || '"q12": true' || '"q13": true')) {
-					var t = document.createTextNode('Your project is "high risk" and as such you will need to contact your supervisor as you may need to complete a full ethics review through the SoC Committee.');
-				} else {
-					var t = document.createTextNode('Your project is "low risk" and as such you will need to complete the self assessment on this website. Please press the button below to create an account.');
-					document.getElementById('continueButton').style.display = "block";
-				}
-				document.getElementById('finalMessage').appendChild(t);
-    });
+			if (!document.getElementById('surveyResult').textContent.includes('true')) {
+					
+				var t = document.createTextNode('No ethics review is required for your project.You need to download a form and deliver it to You supervisor');
+				document.getElementById('saveButton').style.display="block";
+			} else if (document.getElementById('surveyResult').textContent.includes('"q7": true' || '"q8": true' || '"q9": true' || '"q10": true' || '"q11: true' || '"q12": true' || '"q13": true')) {
+				var t = document.createTextNode('Your project is "high risk" and as such you will need to contact your supervisor as you may need to complete a full ethics review through the SoC Committee.');
+			} else {
+				var t = document.createTextNode('Your project is "low risk" and as such you will need to complete the self assessment on this website. Please press the button below to create an account.');
+				document.getElementById('continueButton').style.display = "block";
+			}
+			document.getElementById('finalMessage').appendChild(t);
+			
+});
 
 var app = new Vue({
     el: '#surveyElement',

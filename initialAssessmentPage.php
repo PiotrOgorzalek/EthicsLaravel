@@ -46,7 +46,9 @@
 			        <div id="surveyResult"></div>
 							<div id="footer">
 								<p id="finalMessage"></p>
+								
 								<button id="continueButton" onclick="location.href='./createUserPage.php'" type="button">Continue</button>
+								<button type="submit" button id="saveButton" onclick="window.open('http://localhost/testing/certificates/noEthicsCertificate.pdf?download=1')">SAVE AS PDF</button>
 							</div>
 						</article>
 
