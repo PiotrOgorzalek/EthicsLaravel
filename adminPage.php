@@ -71,7 +71,7 @@
 					      </demo-grid>
 					    </div>
 							<p></p>
-							<form action="addSupervisor.php">
+							<form action="addSupervisorPage.php">
 						    <input type="submit" value="Add Supervisor"/>
 							</form>
 
@@ -138,7 +138,7 @@
 					        el: "#demo",
 					        data: {
 					          searchQuery: "",
-					          gridColumns: ["staff_UserId", "Email", "name", "Options"],
+					          gridColumns: ["staff_userId", "email", "name", "Options"],
 					          gridData: [ ]
 					        },
 							methods:{
