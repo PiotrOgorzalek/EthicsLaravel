@@ -24,15 +24,30 @@ else if($superEmail==''){
 else if($superPass==''){
 	$out['error'] = true;
 	$out['message'] = "Password is required"; // If password is left blank this will return a message to the page
+} else {
+	//check if email in the database
+	$sqlCheck = "SELECT email FROM users_staff WHERE email='$superEmail'";
+	//run the query against database return 1 if found or 0 if not
+	$emailCheck = @mysqli_query($conn, $sqlCheck);
+	//if true return message that email already existss
+	if (mysqli_num_rows($emailCheck)) {
+		$out['error'] = true;
+		$out['message'] = "Email already exists in database";
+	}
+	//everything fine so run query and say to user that login is succesfull all queries need some security
+	else {
+		$sql = "INSERT INTO users_staff(name,email,password,admin) VALUES ('$superName','$superEmail','$superPass',0)";
+	
+		if ($conn->query($sql) === TRUE) {
+			
+			$sql = "select * from users_staff where email='$superEmail' and password='$superPass"; //Necessary to log the user in directly after creating an account
+			$query = $conn->query($sql);
+			$out['message'] = "Supervisor Created";
+			
+		}
+	}
 }
-else{ // If every form box has a value then run the below code
-  $sql = //Sort out query to check if the details already exist within the database
-         //If the details do already exist then return an error message otherwise add the data to the database and return a success message (lines of code below)
 
-	$sql = //Sort out query to insert data into the correct table
-
-  $out['message'] = "Entry Successful";
-}
 
 
 

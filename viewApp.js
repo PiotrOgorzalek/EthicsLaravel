@@ -20,19 +20,8 @@ var json = {
             title: "School or Professional service department:",
             placeHolder: "Insert your school or professional service department here.",
             isRequired: true
-        }, {
-            name: "email",
-            type: "text",
-            inputType: "email",
-            title: "Email:",
-            placeHolder: "Insert your email here.",
-            isRequired: true,
-            validators: [
-                {
-                    type: "email"
-                }
-            ]
-        }, {
+            //email removed
+        },  {
             name: "contactNumber",
             type: "text",
             title: "Contact number:",

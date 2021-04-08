@@ -138,13 +138,23 @@
 					        el: "#demo",
 					        data: {
 					          searchQuery: "",
-					          gridColumns: ["Supervisor ID", "Email", "Supervisor Name", "Options"],
-					          gridData: [
-					            { 'Supervisor ID': "1", Email: "supervisorOne@napier.ac.uk", 'Supervisor Name': "Supervisor One", Options: "<button>Remove</button>" },
-						          { 'Supervisor ID': "2", Email: "supervisorTwo@napier.ac.uk", 'Supervisor Name': "Supervisor Two", Options: "<button>Remove</button>" },
-							        { 'Supervisor ID': "3", Email: "supervisorThree@napier.ac.uk", 'Supervisor Name': "Supervisor Three", Options: "<button>Remove</button>" }
-					          ]
-					        }
+					          gridColumns: ["staff_UserId", "Email", "name", "Options"],
+					          gridData: [ ]
+					        },
+							methods:{
+								fetchAllData:function(){
+									axios.post('adminTable.php',{
+										action:'fetchall'
+									}).then(function(response){
+										demo.gridData = response.data;
+										console.log(demo.gridData);
+									});
+								}
+							},
+							created:function(){
+								this.fetchAllData()
+							}
+							
 					      });
 					    </script>
 						</article>

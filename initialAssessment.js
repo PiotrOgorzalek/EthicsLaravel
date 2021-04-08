@@ -1,4 +1,6 @@
+//hiding buttons 
 document.getElementById('continueButton').style.display = "none";
+document.getElementById('saveButton').style.display = "none";
 
 Survey
     .StylesManager
