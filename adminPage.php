@@ -138,7 +138,8 @@
 					        el: "#demo",
 					        data: {
 					          searchQuery: "",
-					          gridColumns: ["staff_userId", "email", "name", "Options"],
+							    //head of coums need to have the same names as JSON in our case the same names as sql table names.
+					          gridColumns: ["Id", "email", "name", "Options"],
 					          gridData: [ ]
 					        },
 							methods:{

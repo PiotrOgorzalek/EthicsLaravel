@@ -12,6 +12,9 @@ if ($received_data->action == 'fetchall')
     $statement->execute();
      while ($row = $statement->fetch(PDO::FETCH_ASSOC))
      {
+        //just to make table look pretty
+        $row['Id'] = $row['staff_userId']; 
+        //might need to add link here no idea how to do it at the moment
         $row['Options'] ="<button>Delete</button>";
         $data[] = $row  ;
      }
