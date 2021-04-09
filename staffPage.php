@@ -48,7 +48,7 @@
 										<th>typeOfResearch</th>
 										<th>Starting date</th>
 										<th>Aproved</th>
-										
+
 										<tr v-for="row in allData">
 										<td>{{row.userName}}</td>
 										<td>{{row.email}}</td>
@@ -56,8 +56,8 @@
 										<td>{{row.typeOfResearch}}</td>
 										<td>{{row.startDate}}</td>
 										<!--  depends on the return from database the output will change -->
-										<td v-if="row.approved===null">Pending approval</td>
-										<td v-else="row.approved=null">{{row.approved}}</td>
+										<td v-if="row.approved==1">Approved</td>
+										<td v-else="row.approved=null">Approval Pending</td>
 										<td><a v-bind:href="'viewApplicationPage.php?usersID=' + row.userId">Review Application</a></td>
 
 							</table>

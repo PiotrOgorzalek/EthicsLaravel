@@ -21,18 +21,6 @@ var json = {
             placeHolder: "Insert your school or professional service department here.",
             isRequired: true
         }, {
-            name: "email",
-            type: "text",
-            inputType: "email",
-            title: "Email:",
-            placeHolder: "Insert your email here.",
-            isRequired: true,
-            validators: [
-                {
-                    type: "email"
-                }
-            ]
-        }, {
             name: "contactNumber",
             type: "text",
             title: "Contact number:",
@@ -451,8 +439,12 @@ var json = {
                 {
                   name: "signatures",
                   title: "Signatures:",
-                  cellType: "text",
-                  isRequired: true
+                  cellType: "checkbox",
+                  isRequired: true,
+                  colCount: 1,
+                  choices: [
+                      ""
+                  ]
                 }, {
                     name: "dates",
                     title: "Date Signed:",
@@ -470,9 +462,32 @@ var json = {
           name: "info",
           html: "<h2>Checklist</h2><p>All applicants require the following to be submitted with the application form</p>"
         }, {
-          type: "html",
-          name: "info",
-          html: "<p>Either checkboxes or file upload will be here</p>"
+            name: "file1",
+            title: "Participant Information Sheet",
+            type: "checkbox",
+            isRequired: true,
+            colCount: 1,
+            choices: [
+                ""
+            ]
+        }, {
+            name: "file2",
+            title: "Informed Consent Sheet",
+            type: "checkbox",
+            isRequired: true,
+            colCount: 1,
+            choices: [
+                ""
+            ]
+        }, {
+            name: "file3",
+            title: "Interview/Survey Questions",
+            type: "checkbox",
+            isRequired: true,
+            colCount: 1,
+            choices: [
+                ""
+            ]
         }
   ],
 
