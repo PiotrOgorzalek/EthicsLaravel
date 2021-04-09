@@ -40,6 +40,8 @@
 								 <survey :survey='survey'/>
 							</div>
 							<div id="surveyResult"></div>
+							<button onclick="location.href='updateApproveStatus.php?approve=1&viewingID=<?php echo $_GET['usersID'] ?>'">Approve</button>
+							<button onclick="location.href='updateApproveStatus.php?approve=0&viewingID=<?php echo $_GET['usersID'] ?>'">Reject</button>
 						</article>
 				</div>
 			</div>

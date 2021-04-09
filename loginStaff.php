@@ -30,12 +30,15 @@ else{
 		{
 			//IMPORTANT AS USING THAT VUE WILL OPEN RELEVANT PAGE
 			$out['message'] = "Admin Login";
+      $_SESSION['user']=$row['staff_userId'];
+      $_SESSION['userType']='Admin';
 		}
-		else 
+		else
 		{
-		$out['message'] = "Login Successful"; // If the user is successfully logged in this will return a message to the page
-		$_SESSION['user']=$row['staff_userId'];
-		 } // Set session variable of user to the user id of a user on a successful login
+		  $out['message'] = "Login Successful"; // If the user is successfully logged in this will return a message to the page
+		  $_SESSION['user']=$row['staff_userId'];
+      $_SESSION['userType']='Supervisor';
+		} // Set session variable of user to the user id of a user on a successful login
 	}
 	else{
 		$out['error'] = true;
