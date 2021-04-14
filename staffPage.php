@@ -57,7 +57,8 @@
 										<td>{{row.startDate}}</td>
 										<!--  depends on the return from database the output will change -->
 										<td v-if="row.approved==1">Approved</td>
-										<td v-else="row.approved=null">Approval Pending</td>
+										<td v-else-if="row.approved=null">Approval Pending</td>
+										<td v-else>Rejected</td>
 										<td><a v-bind:href="'viewApplicationPage.php?usersID=' + row.userId">Review Application</a></td>
 
 							</table>
