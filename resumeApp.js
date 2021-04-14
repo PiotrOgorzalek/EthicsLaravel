@@ -491,7 +491,7 @@ var json = {
         }
   ],
 
-  completedHtml: "<p><h4>Your application has been successfully completed, the supervisor will return to you with a response.</h4></p>"
+  completedHtml: "<p><h4>Your application has been successfully completed, the supervisor will return to you with a response.</h4></p><br><a href= userPage.php>Return </a>"
 };
 
 window.survey = new Survey.Model(json);

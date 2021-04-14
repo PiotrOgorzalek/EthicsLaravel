@@ -51,15 +51,6 @@
 				<nav id="nav">
 						<ul>
 							<li><a href="initialAssessmentPage.php">Start app process</a></li>
-							<?php if(isset($_SESSION['user'])) //check if user is a user and display buttons
-						    { if ($_SESSION['userType']==='Student'){
-						    ?>
-						   <li><a href="resumeApplicationPage.php">Resume Application</a></li>
-
-							<?php } } else { // if user is not logged in then display these buttons?>
-								<li></li>
-							<?php } ?>
-							
 							<li><a href="faq.php">FAQ</a></li>
 							<li><a href="loginPageStaff.php">Staff Login</a></li>
 							<?php if(isset($_SESSION['user'])) //check if user is a user and display buttons

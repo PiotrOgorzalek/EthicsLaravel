@@ -13,12 +13,14 @@
 		<title>ENU Student Ethics Resource</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/survey-vue@1.8.31/survey.vue.min.js"></script>
-    <link href="https://unpkg.com/survey-knockout@1.8.31/survey.min.css" type="text/css" rel="stylesheet"/>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vuetable-2@next"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/x-template" id="grid-template">
+
+    </script>
 	</head>
 	<body class="is-preload">
 
@@ -34,14 +36,31 @@
 									if they get too long. You can also remove the <p> entirely if you don't
 									need a subtitle.
 								-->
-								<h2>Viewing Application</h2>
+								<h2>User page</h2>
+								<p></p>
 							</header>
-							<div id="surveyElement" style="display:inline-block;width:100%;">
-								 <survey :survey='survey'/>
-							</div>
-							<div id="surveyResult"></div>
-							<button onclick="location.href='updateApproveStatus.php?approve=1&viewingID=<?php echo $_GET['usersID'] ?>'">Approve</button>
-							<button onclick="location.href='updateApproveStatus.php?approve=0&viewingID=<?php echo $_GET['usersID'] ?>'">Reject</button>
+							<div id="tableApp">
+							<table>
+									<tr>
+										<th>Project Title</th>
+										<th>Type of Research</th>
+										<th>Starting Date</th>
+										<th>Status</th>
+
+										<tr v-for="row in allData">
+									
+										<td>{{row.projectTitle}}</td>
+										<td>{{row.typeOfResearch}}</td>
+										<td>{{row.startDate}}</td>
+										<!--  depends on the return from database the output will change -->
+										<td v-if="row.approved==1"><a href ="./certificates/ethicsCertificate.pdf?download=1">Approved - download</a></td>
+										<td v-else-if="row.approved==null"><a href ="resumeApplicationPage.php">Pending changes allowed</a></td>
+										<td v-else>Rejected</td>
+										
+
+							</table>
+									</tr>
+
 						</article>
 				</div>
 			</div>
@@ -75,13 +94,31 @@
 			</div>
 
 		<!-- Scripts -->
-			<script type="text/javascript" src="./viewApp.js"></script>
-			<script src="https://unpkg.com/vue@next"></script> <!-- import vue.js -->
+			<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> <!-- import vue.js -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+						var application = new Vue({
+							el:'#tableApp',
+							data:{
+								allData:'',
+							},
+							methods:{
+								fetchAllData:function(){
+									axios.post('userTable.php',{
+										action:'fetchall'
+									}).then(function(response){
+										application.allData = response.data;
+									});
+								}
+							},
+							created:function(){
+								this.fetchAllData()
+							}
+						});
+					    </script>
 	</body>
 </html>

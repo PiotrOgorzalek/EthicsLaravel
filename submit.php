@@ -23,17 +23,29 @@ $supervisorEmail = $txt2->{'supervisorEmail'};
 $date = date("Ymd");
 //creating path to file
 $path = ("applications/".$id."_".$date.".json");
-
+if (file_exists($path)){
 //saving in folder with user id
-$myfile = fopen($path, "w") or die("Unable to open file!");
-fwrite($myfile,$txt);
-fclose($myfile);
-
-
+    unlink($path);
+    $myfile = fopen($path, "w") or die("Unable to open file!");
+    fwrite($myfile,$txt);
+    fclose($myfile);
+    require('connect.php');
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$createApplicationData= "Update application set projectTitle='$projectTitle',startDate='$startDate',durationOfProject='$duration',funding='$funding',typeOfResearch='$typeOfResearch' where applicationPath='$path' ";
+//getting the last input number
+@mysqli_query($conn,$createApplicationData);
+}
+else{
+    $myfile = fopen($path, "w") or die("Unable to open file!");
+    fwrite($myfile,$txt);
+    fclose($myfile);
 require('connect.php');
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 $getUserIdFromEmail = "SELECT staff_userId from users_staff where email='$supervisorEmail'";
 $supervisorId = @mysqli_query($conn,$getUserIdFromEmail);
 $supervisorId = (int)$supervisorId;
@@ -45,9 +57,10 @@ $createApplicationData= "INSERT INTO application (applicationId,projectTitle,use
                             values (null,'$projectTitle','$supervisorId','$startDate','$duration','$funding','$typeOfResearch','$path',null)";
 //getting the last input number
 @mysqli_query($conn,$createApplicationData);
-
 $applicationId = mysqli_insert_id($conn);
 $createUserAppData = "INSERT INTO user_application(id,applicationId,userId) VALUES (null,'$applicationId','$id')";
 @mysqli_query($conn,$createUserAppData);
 $conn->close();
+}
 ?>
+
