@@ -72,12 +72,20 @@
 					<h1 id="logo"><a href="index.php"><img src ="images/logo.png"></a></h1>
 
 				<!-- Nav -->
-					<nav id="nav">
+				<nav id="nav">
 						<ul>
-							<li><a href="initial assessment.php">Start app process</a></li>
-							<li><a href="resume application.php">Resume Application</a></li>
+							<li><a href="initialAssessmentPage.php">Start app process</a></li>
+							<?php if(isset($_SESSION['user'])) //check if user is a user and display buttons
+						    { if ($_SESSION['userType']==='Student'){
+						    ?>
+						   <li><a href="resumeApplicationPage.php">Resume Application</a></li>
+
+							<?php } } else { // if user is not logged in then display these buttons?>
+								<li></li>
+							<?php } ?>
+							
 							<li><a href="faq.php">FAQ</a></li>
-							<li><a href="staff.php">Staff Login</a></li>
+							<li><a href="loginPageStaff.php">Staff Login</a></li>
 							<?php if(isset($_SESSION['user'])) //check if user is a user and display buttons
 						    {
 						    ?>
