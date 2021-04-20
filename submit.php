@@ -44,10 +44,13 @@ if (file_exists($path)) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
     $getUserIdFromEmail = "SELECT staff_userId from users_staff where email='$supervisorEmail'";
-    $supervisorId = @mysqli_query($conn, $getUserIdFromEmail);
-    $supervisorId = (int)$supervisorId;
+    $result = @mysqli_query($conn,$getUserIdFromEmail);
+    if (mysqli_num_rows($result)==1){
+    $row = mysqli_fetch_array($result);
+    $supervisorId = $row['staff_userId'];
+    }
+    
     //adding user name etc to users table
     $createUserData = "UPDATE users SET userName='$userName',schoolOrProfessionalService='$schoolOrService',contactNumber='$contactNo' where userId='$id'";
     @mysqli_query($conn, $createUserData);
