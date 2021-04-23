@@ -20,7 +20,7 @@ var json = {
             title: "School or Professional service department:",
             placeHolder: "Insert your school or professional service department here.",
             isRequired: true
-        }, {
+        },  {
             name: "contactNumber",
             type: "text",
             title: "Contact number:",
@@ -191,31 +191,31 @@ var json = {
           html: "<h3>Data Collection</h3>"
         }, {
           name: "q3a1",
-          type: "text",
+          type: "comment",
           title: "How will you collect and analyse the research data? (please outline all methods e.g. questionnaires/focus groups/internet searches/literature searches/interviews/observation)",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a2",
-          type: "text",
+          type: "comment",
           title: "Who will be the participants in the research?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a3",
-          type: "text",
+          type: "comment",
           title: "Where will the data will be gathered (e.g. in the classroom/on the street/telephone/online)",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a4",
-          type: "text",
+          type: "comment",
           title: "Please describe your selection criteria for inclusion of participants in the study",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a5",
-          type: "text",
+          type: "comment",
           title: "If your research is based on secondary data, please outline the source, validity and reliability of the data set",
           placeHolder: "Insert your answer here.",
           isRequired: true
@@ -225,19 +225,19 @@ var json = {
           html: "<h3>Consent and Participation Information</h3>"
         }, {
           name: "q3a6",
-          type: "text",
+          type: "comment",
           title: "How will you invite research participants to take part in the study? (e.g letter/email/asked in lecture)",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a7",
-          type: "text",
+          type: "comment",
           title: "How will you explain the nature and purpose of the research to participants?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a8",
-          type: "text",
+          type: "comment",
           title: "How will you record obtaining informed consent from your participants?",
           placeHolder: "Insert your answer here.",
           isRequired: true
@@ -247,43 +247,43 @@ var json = {
           html: "<h3>Data storage and Dissemination</h3>"
         }, {
           name: "q3a9",
-          type: "text",
+          type: "comment",
           title: "How and in what format will data be stored? And what steps will be taken to ensure data is stored securely?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a10",
-          type: "text",
+          type: "comment",
           title: "Who will have access to the data?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a11",
-          type: "text",
+          type: "comment",
           title: "Will the data be anonymised so that files contain no information that could be linked to any participant?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a12",
-          type: "text",
+          type: "comment",
           title: "How long will the data be kept?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a13",
-          type: "text",
+          type: "comment",
           title: "What will be done with the data at the end of the project? ",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a14",
-          type: "text",
+          type: "comment",
           title: "How will the findings be disseminated?",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           name: "q3a15",
-          type: "text",
+          type: "comment",
           title: "Will any individual be identifiable in the findings?",
           placeHolder: "Insert your answer here.",
           isRequired: true
@@ -326,35 +326,35 @@ var json = {
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True or {q6} = True or {q7} = True or {q8} = True or {q9} = True or {q10} = True or {q11} = True or {q12} = True or {q13} = True or {q14} = True or {q15} = True or {q16} = True",
           name: "q3b2",
-          type: "text",
+          type: "comment",
           title: "If you are recruiting children (under 18 years) or people who are otherwise unable to give informed consent, please give full details of how you will obtain consent from parents, guardians, carers etc.",
           placeHolder: "Insert your answer here.",
           isRequired: false
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True or {q6} = True or {q7} = True or {q8} = True or {q9} = True or {q10} = True or {q11} = True or {q12} = True or {q13} = True or {q14} = True or {q15} = True or {q16} = True",
           name: "q3b3",
-          type: "text",
+          type: "comment",
           title: "Please describe any identified risks to participants or the researcher as a result of this research being carried out.",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True or {q6} = True or {q7} = True or {q8} = True or {q9} = True or {q10} = True or {q11} = True or {q12} = True or {q13} = True or {q14} = True or {q15} = True or {q16} = True",
           name: "q3b4",
-          type: "text",
+          type: "comment",
           title: "Please describe what steps have been taken to reduce these identified risks? (for example providing contact details for appropriate support services (e.g. University Counselling, Samaritans), reminding participants of their right to withdraw and/or not answering questions, or providing a full debriefing to participants and understanding the responsibility of the researcher when dealing with confidential and sensitive information).",
           placeHolder: "Insert your answer here.",
           isRequired: true
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True or {q6} = True or {q7} = True or {q8} = True or {q9} = True or {q10} = True or {q11} = True or {q12} = True or {q13} = True or {q14} = True or {q15} = True or {q16} = True",
           name: "q3b5",
-          type: "text",
+          type: "comment",
           title: "If you plan to use assumed consent rather than informed consent please outline why this is necessary.",
           placeHolder: "Insert your answer here.",
           isRequired: false
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True or {q6} = True or {q7} = True or {q8} = True or {q9} = True or {q10} = True or {q11} = True or {q12} = True or {q13} = True or {q14} = True or {q15} = True or {q16} = True",
           name: "q3b6",
-          type: "text",
+          type: "comment",
           title: "If payment or reward will be made to participants please justify that the amount and type are appropriate (for example the amount should not be so high that participants would be financially coerced into taking part, or that the type of reward is appropriate to the research topic).",
           placeHolder: "Insert your answer here.",
           isRequired: false
@@ -366,28 +366,28 @@ var json = {
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True",
           name: "q3c1",
-          type: "text",
+          type: "comment",
           title: "If you have answered yes to question 1, please give a full description of all medical procedures to be used within the research and provide evidence that the project has obtained NHS ethical approval.",
           placeHolder: "Insert your answer here.",
           isRequired: false
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True",
           name: "q3c2",
-          type: "text",
+          type: "comment",
           title: "If you have answered yes to question 2, please give a full description of the health care setting and what steps have been taken to reduce any potential risks and describe how you have gained permission from the Health Care Organisation.",
           placeHolder: "Insert your answer here.",
           isRequired: false
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True",
           name: "q3c3",
-          type: "text",
+          type: "comment",
           title: "If you have answered yes to questions 3 (research into a controversial topic), please provide a justification for your choice of research topic, and describe how you would deal with any potential issues arising from researching that topic.",
           placeHolder: "Insert your answer here.",
           isRequired: false
         }, {
           visibleIf: "{q1} = True or {q2} = True or {q3} = True or {q4} = True or {q5} = True",
           name: "q3c4",
-          type: "text",
+          type: "comment",
           title: "If you have answered yes to questions 4 or 5 (use of deception or covert research methods) please provide a justification for your choice of methodology, and state how you will mitigate the risks associated with these approaches.",
           placeHolder: "Insert your answer here.",
           isRequired: false
@@ -454,40 +454,24 @@ var json = {
                 }
             ],
             rows: [
-                "Researcher Signature:",
-                "Director of Studies/Supervisor/Principal Investigator Signature:"
+                "Researcher Signature:"
             ]
         }, {
           type: "html",
           name: "info",
-          html: "<h2>Checklist</h2><p>All applicants require the following to be submitted with the application form</p>"
+          html: "<h2>Checklist</h2><p>If any of these files are necessary please send a copy to your supervisor.</p>"
         }, {
-            name: "file1",
-            title: "Participant Information Sheet",
-            type: "checkbox",
-            isRequired: true,
-            colCount: 1,
-            choices: [
-                ""
-            ]
+          type: "html",
+          name: "info",
+          html: "<p>Participant Information Sheet.</p>"
         }, {
-            name: "file2",
-            title: "Informed Consent Sheet",
-            type: "checkbox",
-            isRequired: true,
-            colCount: 1,
-            choices: [
-                ""
-            ]
+          type: "html",
+          name: "info",
+          html: "<p>Informed Consent Sheet.</p>"
         }, {
-            name: "file3",
-            title: "Interview/Survey Questions",
-            type: "checkbox",
-            isRequired: true,
-            colCount: 1,
-            choices: [
-                ""
-            ]
+          type: "html",
+          name: "info",
+          html: "<p>Interview/Survey Questions.</p>"
         }
   ],
 
